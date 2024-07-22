@@ -4,12 +4,12 @@ export class Initialize1721631892148 implements MigrationInterface {
 	name = "Initialize1721631892148";
 
 	public async up(queryRunner: QueryRunner): Promise<void> {
-		await queryRunner.query(`DROP TABLE IF EXISTS "comment"`);
-		await queryRunner.query(`DROP TABLE IF EXISTS "upvote_comment"`);
-		await queryRunner.query(`DROP TABLE IF EXISTS "user"`);
-		await queryRunner.query(`DROP TABLE IF EXISTS "post"`);
-		await queryRunner.query(`DROP TABLE IF EXISTS "community"`);
-		await queryRunner.query(`DROP TABLE IF EXISTS "upvote"`);
+		await queryRunner.query(`DROP TABLE IF EXISTS "comment" CASCADE`);
+		await queryRunner.query(`DROP TABLE IF EXISTS "upvote_comment" CASCADE`);
+		await queryRunner.query(`DROP TABLE IF EXISTS "user" CASCADE`);
+		await queryRunner.query(`DROP TABLE IF EXISTS "post" CASCADE`);
+		await queryRunner.query(`DROP TABLE IF EXISTS "community" CASCADE`);
+		await queryRunner.query(`DROP TABLE IF EXISTS "upvote" CASCADE`);
 		await queryRunner.query(
 			`CREATE TABLE "upvote" ("userId" integer NOT NULL, "postId" integer NOT NULL, "value" integer NOT NULL, CONSTRAINT "PK_802ac6b9099f86aa24eb22d9c05" PRIMARY KEY ("userId", "postId"))`
 		);
