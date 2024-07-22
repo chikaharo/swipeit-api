@@ -46,8 +46,7 @@ const main = async () => {
 					ssl: true,
 			  }
 			: {}),
-		// ...(__prod__ ? {} : { synchronize: true }),
-		synchronize: true,
+		...(__prod__ ? {} : { synchronize: true }),
 		entities: [User, Community, Post, Upvote, Comment, UpvoteComment],
 		migrations: [path.join(__dirname, "/migrations/*")],
 	});
