@@ -31,7 +31,7 @@ const main = async () => {
 		...(__prod__
 			? { url: process.env.DATABASE_URL }
 			: {
-					database: "reddit",
+					database: process.env.DB_NAME,
 					username: process.env.DB_USERNAME_DEV,
 					password: process.env.DB_PASSWORD_DEV,
 			  }),
