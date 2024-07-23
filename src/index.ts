@@ -34,6 +34,7 @@ const main = async () => {
 					database: process.env.DB_NAME,
 					username: process.env.DB_USERNAME_DEV,
 					password: process.env.DB_PASSWORD_DEV,
+					// url: process.env.DATABASE_URL,
 			  }),
 		logging: true,
 		...(__prod__
@@ -87,6 +88,7 @@ const main = async () => {
 				httpOnly: true, // JS front end cannot access the cookie
 				secure: __prod__, // cookie only works in https
 				sameSite: "lax",
+				domain: __prod__ ? "/swipeit-website.vercel.app" : undefined,
 			},
 			secret: process.env.SESSION_SECRET_DEV_PROD as string,
 			saveUninitialized: false, // don't save empty sessions, right from the start
